@@ -32,8 +32,9 @@
 
       perSystem =
         {
-          pkgs,
+          config,
           lib,
+          pkgs,
           system,
           ...
         }:
@@ -71,6 +72,10 @@
           };
 
           devShells.default = pkgs.mkShell {
+            inputsFrom = [
+              config.treefmt.build.devShell
+            ];
+
             buildInputs = lib.optionals pkgs.stdenv.isLinux [
               pkgs.openssl
               pkgs.glib
