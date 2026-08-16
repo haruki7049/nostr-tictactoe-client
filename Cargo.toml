@@ -11,6 +11,7 @@ publish = false
 [dependencies]
 wasm-bindgen = "=0.2.126"                                           # To align the version of nixpkgs' pkgs.wasm-bindgen-cli
 dioxus = { version = "0.7.10", features = ["router", "fullstack"] }
+thiserror = "2.0.20"
 
 [features]
 default = ["web"]
@@ -18,3 +19,6 @@ web = ["dioxus/web"]
 desktop = ["dioxus/desktop"]
 mobile = ["dioxus/mobile"]
 server = ["dioxus/server"]
+
+[dev-dependencies]
+anyhow = "1.0.104"
