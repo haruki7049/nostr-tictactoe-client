@@ -5,7 +5,7 @@ const COLUMN_LENGTH: usize = 3;
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct Board {
-    inner: [Line; COLUMN_LENGTH],
+    pub inner: [Line; COLUMN_LENGTH],
 }
 
 impl Default for Board {
@@ -28,7 +28,7 @@ impl Default for Board {
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct Line {
-    inner: [BoardState; LINE_LENGTH],
+    pub inner: [BoardState; LINE_LENGTH],
 }
 
 #[derive(Debug, Error, PartialEq, Eq)]

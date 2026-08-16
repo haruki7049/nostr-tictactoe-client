@@ -30,9 +30,20 @@ fn Board() -> Element {
 
     rsx! {
         div {
-            class: "block border border-line rounded-card bg-card",
-            p { "This is an example text..." }
-            p { "This is an example text..." }
+            class: "grid gap-4 border border-line rounded-card bg-card",
+
+            for line in board.read().inner.iter() {
+                div {
+                    class: "flex items-center justify-center",
+
+                    for column in line.inner.iter() {
+                        p {
+                            class: "",
+                            "{column:#?}"
+                        }
+                    }
+                }
+            }
         }
     }
 }
