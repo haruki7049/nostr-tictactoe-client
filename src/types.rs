@@ -31,6 +31,14 @@ pub struct Line {
     pub inner: [BoardState; LINE_LENGTH],
 }
 
+impl Default for Line {
+    fn default() -> Self {
+        Self {
+            inner: [BoardState::None, BoardState::None, BoardState::None],
+        }
+    }
+}
+
 #[derive(Debug, Error, PartialEq, Eq)]
 pub enum LineError {
     #[error("Invalid line: {0:#?}")]
@@ -203,6 +211,17 @@ mod tests {
 
     mod line {
         use super::{BoardState, Line, LineError, PlayerSide};
+
+        #[test]
+        fn line_default() -> anyhow::Result<()> {
+            let expected: Line = Line {
+                inner: [BoardState::None, BoardState::None, BoardState::None],
+            };
+            let actual: Line = Line::default();
+
+            assert_eq!(expected, actual);
+            Ok(())
+        }
 
         #[test]
         fn line_set_nought() -> anyhow::Result<()> {
