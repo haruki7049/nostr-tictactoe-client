@@ -12,15 +12,9 @@ impl Default for Board {
     fn default() -> Self {
         Self {
             inner: [
-                Line {
-                    inner: [BoardState::None, BoardState::None, BoardState::None],
-                },
-                Line {
-                    inner: [BoardState::None, BoardState::None, BoardState::None],
-                },
-                Line {
-                    inner: [BoardState::None, BoardState::None, BoardState::None],
-                },
+                Line::default(),
+                Line::default(),
+                Line::default(),
             ],
         }
     }
