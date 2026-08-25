@@ -34,11 +34,11 @@ fn Board() -> Element {
 
             for line in board.read().inner.iter() {
                 div {
-                    class: "flex items-center justify-center",
+                    class: "flex items-center justify-between",
 
                     for column in line.inner.iter() {
                         p {
-                            class: "",
+                            class: "m-5 border border-line rounded-card p-5",
                             "{column:#?}"
                         }
                     }
